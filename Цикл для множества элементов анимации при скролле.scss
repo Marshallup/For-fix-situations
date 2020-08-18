@@ -1,0 +1,16 @@
+.slider {
+  // Родительский элемент
+  &__item.anim-active {
+    // Дочерний элемент на котором происходит анимация
+    @for $var from 1 to 6 {
+      $delay: $var * 0.1;
+      &:nth-child(#{$var}) {
+        @if $var == 1 {
+          transition: opacity 1s ease;
+        } @else {
+          transition: opacity 1s ease #{$delay + s};
+        }
+      }
+    }
+  }
+}
